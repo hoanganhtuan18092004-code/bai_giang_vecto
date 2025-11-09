@@ -45,6 +45,7 @@
             color: white;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
         }
         
         h1 {
@@ -55,6 +56,28 @@
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
+        }
+        
+        .back-home-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .back-home-btn:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
         
         .nav-tabs {
@@ -325,6 +348,7 @@
         <header>
             <h1>Vectơ trong Mặt Phẳng Tọa Độ</h1>
             <p class="subtitle">Khám phá thế giới vectơ qua bài học tương tác</p>
+            <button class="back-home-btn" id="back-home-btn">← Back Home</button>
         </header>
         
         <div class="nav-tabs">
@@ -333,7 +357,6 @@
             <button class="tab-btn" data-tab="basic-exercises">Bài Tập Cơ Bản</button>
             <button class="tab-btn" data-tab="applied-exercises">Bài Tập Vận Dụng</button>
             <button class="tab-btn" data-tab="creative-exercises">Bài Tập Sáng Tạo</button>
-            <button class="tab-btn" id="back-home-btn">Back Home</button>
         </div>
         
         <!-- Lý Thuyết -->
@@ -570,9 +593,7 @@
                 // Add active class to clicked button and corresponding content
                 button.classList.add('active');
                 const tabId = button.getAttribute('data-tab');
-                if (tabId) {
-                    document.getElementById(tabId).classList.add('active');
-                }
+                document.getElementById(tabId).classList.add('active');
             });
         });
         
@@ -742,7 +763,7 @@
             ctx.beginPath();
             ctx.moveTo(centerX - 5, 10);
             ctx.lineTo(centerX, 0);
-            ctx.lineTo(centerX + 5, 10);
+                ctx.lineTo(centerX + 5, 10);
             ctx.fill();
             
             // Draw labels
